@@ -1,5 +1,4 @@
 ﻿using ApiProyectoTienda.Helpers;
-using ApiProyectoTienda.Models;
 using ApiProyectoTienda.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
