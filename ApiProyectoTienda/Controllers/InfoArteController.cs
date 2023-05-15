@@ -29,11 +29,11 @@ namespace ApiProyectoTienda.Controllers
             return this.repo.FindInfoArte(id);
         }
 
-        [HttpGet("{ids}")]
-        public ActionResult<DatosArtista> GetInfoArteSession([FromQuery]List<int> id)
-        {
-            return this.repo.GetInfoArteSession(id);
-        }
+        //[HttpGet("{ids}")]
+        //public ActionResult<DatosArtista> GetInfoArteSession([FromQuery]List<int> id)
+        //{
+        //    return this.repo.GetInfoArteSession(id);
+        //}
 
         [HttpPost]
         [Route("[action]/{titulo}/{precio}/{descripcion}/{imagen}/{idartista}")]
