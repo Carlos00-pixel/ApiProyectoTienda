@@ -5,10 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSingleton<HelperOAuthToken>();
-HelperOAuthToken helper = new HelperOAuthToken(builder.Configuration);
-builder.Services.AddAuthentication(helper.GetAuthenticationOptions())
-    .AddJwtBearer(helper.GetJwtOptions());
 
 // Add services to the container.
 string connectionString =

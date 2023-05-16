@@ -29,9 +29,20 @@ namespace ApiProyectoTienda.Controllers
             return this.repo.DetailsArtista(id);
         }
 
-        [HttpDelete("{id}")]
-        [Authorize]
-        public async Task<ActionResult> BorrarProductoPorArtista(int id)
+        [HttpPut]
+        [Route("[action]/{idartista}/{nombre}/{apellidos}/{nick}/{descripcion}/{email}/{imagen}")]
+        public async Task<ActionResult> EditarArtista
+            (int idartista, string nombre, string apellidos, string nick, string descripcion,
+            string email, string imagen)
+        {
+            await this.repo.PerfilArtista(idartista, nombre, apellidos, nick,
+                descripcion, email, imagen);
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("[action]/{id}")]
+        public async Task<ActionResult> BorrarProducto(int id)
         {
             await this.repo.DeleteInfoArteAsync(id);
             return Ok();

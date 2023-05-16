@@ -23,6 +23,7 @@ namespace ApiProyectoTienda.Controllers
         }
 
         [HttpPut]
+        [Route("[action]/{idcliente}/{nombre}/{apellidos}/{email}/{imagen}")]
         public async Task<ActionResult> EditarCliente
             (int idcliente, string nombre, string apellidos, string email, string imagen)
         {
