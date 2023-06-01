@@ -8,12 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 string connectionString =
-    builder.Configuration.GetConnectionString("SqlServer");
+    builder.Configuration.GetConnectionString("MySqlProyectoTienda");
 builder.Services.AddTransient<RepositoryArtista>();
 builder.Services.AddTransient<RepositoryCliente>();
 builder.Services.AddTransient<RepositoryInfoArte>();
 builder.Services.AddDbContext<ProyectoTiendaContext>
-    (options => options.UseSqlServer(connectionString));
+    (options => options.UseMySql(connectionString
+    , ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
