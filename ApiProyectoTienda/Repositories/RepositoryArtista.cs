@@ -58,7 +58,7 @@ namespace ApiProyectoTienda.Repositories
 
         public async Task RegistrarArtistaAsync
             (string nombre, string apellidos, string nick, string descripcion,
-            string email, string password, string imagen)
+            string email, string password, string imagen, string imagenfondo)
         {
             Artista artista = new Artista();
 
@@ -75,6 +75,7 @@ namespace ApiProyectoTienda.Repositories
             artista.Password =
                 HelperCryptography.EncryptPassword(password, artista.Salt);
             artista.Imagen = imagen;
+            artista.ImagenFondo = imagenfondo;
 
             this.context.Artistas.Add(artista);
 
@@ -113,6 +114,17 @@ namespace ApiProyectoTienda.Repositories
             artista.artista.Descripcion = descripcion;
             artista.artista.Email = email;
             artista.artista.Imagen = imagen;
+
+            await this.context.SaveChangesAsync();
+        }
+
+        public async Task CambiarImagenFondoAsync
+            (int idartista, string imagenFondo)
+        {
+            DatosArtista artista = new DatosArtista();
+
+            artista = this.DetailsArtista(idartista);
+            artista.artista.ImagenFondo = imagenFondo;
 
             await this.context.SaveChangesAsync();
         }

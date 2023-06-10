@@ -40,6 +40,14 @@ namespace ApiProyectoTienda.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        [Route("[action]/{id}/{imagenfondo}")]
+        public async Task<ActionResult> CambiarImagenFondo(int id,string imagenfondo)
+        {
+            await this.repo.CambiarImagenFondoAsync(id, imagenfondo);
+            return Ok();
+        }
+
         [HttpDelete]
         [Route("[action]/{id}")]
         public async Task<ActionResult> BorrarProducto(int id)

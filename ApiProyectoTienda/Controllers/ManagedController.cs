@@ -59,14 +59,14 @@ namespace ApiProyectoTienda.Controllers
         }
 
         [HttpPost]
-        [Route("[action]/{nombre}/{apellidos}/{nick}/{descripcion}/{email}/{password}/{imagen}")]
+        [Route("[action]/{nombre}/{apellidos}/{nick}/{descripcion}/{email}/{password}/{imagen}/{imagenfondo}")]
         public async Task<IActionResult> RegisterArtista
             (string nombre, string apellidos, string nick, string descripcion,
-            string email, string password, string imagen)
+            string email, string password, string imagen, string imagenfondo)
         {
             await this.repoArtist.RegistrarArtistaAsync
                 (nombre, apellidos, nick, descripcion,
-                email, password, imagen);
+                email, password, imagen, imagenfondo);
             return Ok();
         }
 
